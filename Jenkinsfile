@@ -4,7 +4,7 @@ import groovy.json.JsonSlurperClassic
 node {
 
     def BUILD_NUMBER= 1.0 //env.BUILD_NUMBER
-    def RUN_ARTIFACT_DIR=tests${BUILD_NUMBER}
+    def RUN_ARTIFACT_DIR="tests/${BUILD_NUMBER}"
     def SFDC_USERNAME
 
     def HUB_ORG='rajavardhan@salesforce.com'//env.HUB_ORG_DH
