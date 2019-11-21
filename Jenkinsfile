@@ -29,7 +29,7 @@ node {
             if (isUnix()) {
                 rc = sh returnStatus: true, script : "${toolbelt} forceauthjwtgrant --clientid ${CONNECTED_APP_CONSUMER_KEY} --username ${HUB_ORG} --jwtkeyfile ${jwt_key_file} --setdefaultdevhubusername --instanceurl ${SFDC_HOST}"
             }else{
-                 rc = bat returnStatus : true, script :"${toolbelt} forceauthjwtgrant --clientid ${CONNECTED_APP_CONSUMER_KEY} --username ${HUB_ORG} --jwtkeyfile ${jwt_key_file} --setdefaultdevhubusername --instanceurl ${SFDC_HOST}"
+                 rc = bat returnStatus : true, script :"\"${toolbelt}\" forceauthjwtgrant --clientid ${CONNECTED_APP_CONSUMER_KEY} --username ${HUB_ORG} --jwtkeyfile ${jwt_key_file} --setdefaultdevhubusername --instanceurl ${SFDC_HOST}"
             }
             if (rc != 0) { error 'hub org authorization failed' }
 
@@ -39,10 +39,10 @@ node {
 			if (isUnix()) {
 				rmsg = sh returnStdout: true, script : "${toolbelt} forcemdapideploy -d . -u ${HUB_ORG}"
 			}else{
-			   rmsg = bat returnStdout : true, script : "${toolbelt} forcemdapideploy -d . -u ${HUB_ORG}"
+			   rmsg = bat returnStdout : true, script : "\"${toolbelt}\" forcemdapideploy -d . -u ${HUB_ORG}"
 			}
 			  
-            printf rmsg
+            printf ' END OF' +rmsg
             println('Hello from a Job DSL script!')
             println(rmsg)
         }
