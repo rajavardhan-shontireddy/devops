@@ -1,4 +1,5 @@
 #!groovy
+pipeline {
 import groovy.json.JsonSlurperClassic
 node {
 
@@ -46,4 +47,5 @@ node {
             println(rmsg)
         }
     }*/
+}
 }
